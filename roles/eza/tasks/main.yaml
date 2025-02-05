@@ -1,0 +1,18 @@
+- name: Build URL
+  ansible.builtin.set_fact:
+    url: "{{ eza_base_url }}/v{{ eza_version }}/eza_{{ ansible_architecture }}-unknown-{{ ansible_system | lower }}-gnu.tar.gz"
+
+- name: Download binary
+  ansible.builtin.get_url:
+    url: "{{ url }}"
+    dest: "{{ eza_tmp_dir }}"
+    mode: "0644"
+
+- name: Unarchive
+  become: true
+  ansible.builtin.unarchive:
+    src: "{{ eza_tmp_dir }}"
+    dest: "{{ eza_bin_dir }}"
+    remote_src: true
+    mode: "0755"
+    creates: "{{ eza_bin_dir }}/eza"

@@ -10,8 +10,8 @@ dependencies:
   - luarocks
   - zsh
   - zoxide
-  # - awscli # WARN: note working?
   - ripgrep
+  # - awscli # WARN: not working?
 
 primary_user: vladimir-levin
 home: "/home/{{ primary_user }}"

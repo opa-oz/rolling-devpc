@@ -1,0 +1,5 @@
+eza_base_url: https://github.com/eza-community/eza/releases/download/
+eza_version: 0.20.19
+eza_tmp_dir: /tmp/eza.tar.gz
+
+eza_bin_dir: /usr/local/bin

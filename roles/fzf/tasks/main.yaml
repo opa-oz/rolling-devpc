@@ -1,0 +1,18 @@
+- name: Build URL
+  ansible.builtin.set_fact:
+    url: "{{ fzf_base_url }}/v{{ fzf_version }}/fzf-{{ fzf_version }}-{{ ansible_system | lower }}_{{ 'amd64' if ansible_architecture == 'x86_64' else ansible_architecture }}.tar.gz"
+
+- name: Download binary
+  ansible.builtin.get_url:
+    url: "{{ url }}"
+    dest: "{{ fzf_tmp_dir }}"
+    mode: "0644"
+
+- name: Unarchive
+  become: true
+  ansible.builtin.unarchive:
+    src: "{{ fzf_tmp_dir }}"
+    dest: "{{ fzf_bin_dir }}"
+    remote_src: true
+    mode: "0755"
+    creates: "{{ fzf_bin_dir }}/fzf"

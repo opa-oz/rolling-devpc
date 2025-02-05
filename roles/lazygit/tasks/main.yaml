@@ -1,0 +1,18 @@
+- name: Build URL
+  ansible.builtin.set_fact:
+    url: "{{ lazygit_base_url }}/v{{ lazygit_version }}/lazygit_{{ lazygit_version }}_{{ ansible_system }}_{{ ansible_architecture }}.tar.gz"
+
+- name: Download binary
+  ansible.builtin.get_url:
+    url: "{{ url }}"
+    dest: "{{ lazygit_tmp_dir }}"
+    mode: "0644"
+
+- name: Unarchive
+  become: true
+  ansible.builtin.unarchive:
+    src: "{{ lazygit_tmp_dir }}"
+    dest: "{{ lazygit_bin_dir }}"
+    remote_src: true
+    mode: "0755"
+    creates: "{{ lazygit_bin_dir }}/lazygit"

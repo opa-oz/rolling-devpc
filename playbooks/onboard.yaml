@@ -6,3 +6,7 @@
       vars:
         install_dependencies_update_cache: true
     - create_directories
+    - fzf
+    - eza
+    - oh_my_posh
+    - lazygit

@@ -1,0 +1,5 @@
+fzf_base_url: https://github.com/junegunn/fzf/releases/download
+fzf_version: 0.59.0
+fzf_tmp_dir: /tmp/fzf.tar.gz
+
+fzf_bin_dir: /usr/local/bin

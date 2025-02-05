@@ -1,0 +1,10 @@
+- name: Build URL
+  ansible.builtin.set_fact:
+    url: "{{ oh_my_posh_base_url }}/{{ oh_my_posh_version }}/download/posh-{{ ansible_system | lower }}-{{ 'amd64' if ansible_architecture == 'x86_64' else ansible_architecture }}"
+
+- name: Download
+  become: true
+  ansible.builtin.get_url:
+    url: "{{ url }}"
+    dest: "{{ fzf_bin_dir }}/oh-my-posh"
+    mode: "0755"

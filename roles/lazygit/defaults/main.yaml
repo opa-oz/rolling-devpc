@@ -1,0 +1,5 @@
+lazygit_base_url: https://github.com/jesseduffield/lazygit/releases/download
+lazygit_version: 0.45.2
+lazygit_tmp_dir: /tmp/lazygit.tar.gz
+
+lazygit_bin_dir: /usr/local/bin
