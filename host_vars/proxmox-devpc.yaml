@@ -18,7 +18,9 @@ home: "/home/{{ primary_user }}"
 
 dir_structure:
   - "{{ home }}/.ssh"
+
   - "{{ home }}/.config"
+  - "{{ home }}/.config/tmux"
 
   - "{{ home }}/.cache"
   - "{{ home }}/.cache/nvim"

@@ -1,0 +1,16 @@
+- name: Tmux plugin manager
+  block:
+    - name: Git checkout tmux plugins
+      ansible.builtin.git:
+        repo: "{{ configure_tmux_tpm_repository }}"
+        dest: "{{ configure_tmux_tpm_destination }}"
+        version: "{{ configure_tmux_tpm_version }}"
+        force: "{{ configure_tmux_force_clone }}"
+
+- name: Copy tmux config
+  ansible.builtin.template:
+    src: tmux.conf
+    dest: "{{ configure_tmux_config }}"
+    owner: "{{ primary_user }}"
+    group: "{{ primary_user }}"
+    mode: "0644"

@@ -1,0 +1,7 @@
+configure_tmux_tpm_repository: https://github.com/tmux-plugins/tpm.git
+configure_tmux_tpm_version: v3.1.0
+
+configure_tmux_config: "{{ home }}/.config/tmux/tmux.conf"
+configure_tmux_tpm_destination: "{{ home }}/.tmux/plugins/tpm"
+
+configure_tmux_force_clone: false
