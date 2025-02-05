@@ -1,0 +1,7 @@
+configure_git_username: "Vladimir <opa-oz> Levin"
+configure_git_email: "opaozhub@gmail.com"
+
+configure_git_ssh_keys:
+  - alias: github
+    host: github.com
+    user: opa-oz 

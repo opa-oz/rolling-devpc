@@ -1,0 +1,17 @@
+- name: Set global parameters
+  block:
+    - name: Set email
+      community.general.git_config:
+        scope: global
+        name: user.email
+        value: '{{ configure_git_email }}'
+
+    - name: Set name
+      community.general.git_config:
+        scope: global
+        name: user.name
+        value: '{{ configure_git_username }}'
+
+- name: Generate SSH keys
+  loop: "{{ configure_git_ssh_keys }}"
+  ansible.builtin.include_tasks: generate_ssh.yaml
