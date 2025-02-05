@@ -1,0 +1,3 @@
+devpcs:
+  hosts:
+    proxmox-devpc:

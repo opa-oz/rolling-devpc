@@ -1,0 +1,8 @@
+- name: Onboard DevPCs
+  hosts: devpcs
+  roles:
+    - role: install_dependencies
+      become: true
+      vars:
+        install_dependencies_update_cache: true
+    - create_directories

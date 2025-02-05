@@ -1,0 +1,28 @@
+ansible_host: 192.168.0.122
+ansible_user: vladimir-levin
+
+dependencies:
+  - git
+  - python3
+  - python3-pip
+  - python3-paramiko
+  - tmux
+  - luarocks
+  - zsh
+  - zoxide
+  # - awscli # WARN: note working?
+  - ripgrep
+
+primary_user: vladimir-levin
+home: "/home/{{ primary_user }}"
+
+dir_structure:
+  - "{{ home }}/.ssh"
+  - "{{ home }}/.config"
+
+  - "{{ home }}/.cache"
+  - "{{ home }}/.cache/nvim"
+  - "{{ home }}/.cache/nvim/dashboard"
+
+  - "{{ home }}/.tmux"
+  - "{{ home }}/.tmux/plugins"
