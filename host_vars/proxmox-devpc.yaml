@@ -11,6 +11,7 @@ dependencies:
   - zsh
   - zoxide
   - ripgrep
+  - vim # HACK: Required for Neovim
   # - awscli # WARN: not working?
 
 primary_user: vladimir-levin
@@ -21,6 +22,7 @@ dir_structure:
 
   - "{{ home }}/.config"
   - "{{ home }}/.config/tmux"
+  - "{{ home }}/.config/lazygit"
 
   - "{{ home }}/.cache"
   - "{{ home }}/.cache/nvim"

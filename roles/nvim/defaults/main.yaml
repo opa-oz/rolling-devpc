@@ -1,0 +1,5 @@
+nvim_base_url: https://github.com/neovim/neovim/releases/download
+nvim_version: 0.10.4
+nvim_tmp_dir: /tmp
+
+nvim_bin_dir: /usr/local/bin

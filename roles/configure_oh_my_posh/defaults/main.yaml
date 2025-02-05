@@ -1,0 +1,1 @@
+configure_oh_my_posh_config: "{{ home }}/.config/opa_oz.omp.yaml"

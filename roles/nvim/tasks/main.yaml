@@ -1,0 +1,40 @@
+- name: Build URL
+  ansible.builtin.set_fact:
+    url: "{{ nvim_base_url }}/v{{ nvim_version }}/nvim-{{ ansible_system | lower }}-{{ ansible_architecture }}.tar.gz"
+    binary: "nvim-{{ ansible_system | lower }}-{{ ansible_architecture }}"
+
+- name: Download binary
+  ansible.builtin.get_url:
+    url: "{{ url }}"
+    dest: "{{ nvim_tmp_dir }}/nvim.tar.gz"
+    mode: "0844"
+
+- name: Unarchive
+  become: true
+  ansible.builtin.unarchive:
+    src: "{{ nvim_tmp_dir }}/nvim.tar.gz"
+    dest: "{{ nvim_bin_dir }}"
+    remote_src: true
+    owner: "{{ primary_user }}"
+    group: "{{ primary_user }}"
+    mode: "0744"
+    creates: "{{ nvim_bin_dir }}/{{ binary }}"
+
+- name: Set proper permissions
+  become: true
+  ansible.builtin.file:
+    path: "{{ nvim_bin_dir }}/{{ binary }}"
+    owner: "{{ primary_user }}"
+    group: "{{ primary_user }}"
+    mode: "0744"
+    recurse: true
+
+- name: Create a symbolic link
+  become: true
+  ansible.builtin.file:
+    src: "{{ nvim_bin_dir }}/{{ binary }}/bin/nvim"
+    dest: "{{ nvim_bin_dir }}/nvim"
+    mode: "0755"
+    owner: "{{ primary_user }}"
+    group: "{{ primary_user }}"
+    state: link

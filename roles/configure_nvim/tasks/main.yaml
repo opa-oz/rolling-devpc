@@ -1,0 +1,13 @@
+- name: Download nvim repository
+  ansible.builtin.git:
+    repo: "{{ configure_nvim_repository }}"
+    dest: "{{ configure_nvim_config }}"
+    version: main
+    force: "{{ configure_nvim_force_pull }}"
+- name: Download dashboard cache
+  ansible.builtin.template:
+    src: dashboard_cache.lua
+    dest: "{{ configure_nvim_cache }}"
+    owner: "{{ primary_user }}"
+    group: "{{ primary_user }}"
+    mode: "0644"

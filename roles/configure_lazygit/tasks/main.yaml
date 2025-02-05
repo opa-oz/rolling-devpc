@@ -1,0 +1,7 @@
+- name: Copy lazygit config
+  ansible.builtin.template:
+    src: "{{ inventory_dir }}/dotfiles/dotfiles/.config/lazygit/config.yaml"
+    dest: "{{ configure_lazygit_config }}"
+    owner: "{{ primary_user }}"
+    group: "{{ primary_user }}"
+    mode: "0644"

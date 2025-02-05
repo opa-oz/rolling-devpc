@@ -1,0 +1,7 @@
+- name: Upload oh-my-posh config
+  ansible.builtin.copy:
+    src: "{{ inventory_dir }}/dotfiles/dotfiles/.config/opa_oz.omp.yaml"
+    dest: "{{ configure_oh_my_posh_config }}"
+    owner: "{{ primary_user }}"
+    group: "{{ primary_user }}"
+    mode: "0644"

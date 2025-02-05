@@ -1,0 +1,1 @@
+configure_lazygit_config: "{{ home }}/.config/lazygit/config.yaml"

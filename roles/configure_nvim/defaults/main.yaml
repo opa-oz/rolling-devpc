@@ -1,0 +1,4 @@
+configure_nvim_config: "{{ home }}/.config/nvim"
+configure_nvim_repository: "https://github.com/opa-oz/nvim.git"
+configure_nvim_cache: "{{ home }}/.cache/nvim/dashboard/cache"
+configure_nvim_force_pull: false
