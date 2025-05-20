@@ -12,3 +12,5 @@ onboard: ## Setup devpc's
 
 .PHONY: onboard
 
+hello-world:
+	@echo "Hello World!"

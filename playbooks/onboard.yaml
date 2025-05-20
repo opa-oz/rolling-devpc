@@ -1,4 +1,6 @@
 - name: Onboard DevPCs
+  vars:
+    environment: production
   hosts: devpcs
   roles:
     - role: install_dependencies
