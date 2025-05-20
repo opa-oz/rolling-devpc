@@ -8,15 +8,32 @@
       vars:
         install_dependencies_update_cache: true
     - create_directories
+
     - nvim
-    - role: configure_nvim
-      vars:
-        configure_nvim_force_pull: true
     - fzf
     - eza
     - oh_my_posh
-    - configure_oh_my_posh
     - lazygit
+
+    - role: install_cargo
+      become: true
+    - role: rustup
+      become: true
+
+    - role: install_golang
+      become: true
+      vars:
+        go_version: 1.23.4
+        GOROOT: "{{ home }}/bin/go"
+    - role: install_nodejs
+      become: true
+      vars:
+        install_nodejs_version: 18.x
+
+    - role: configure_nvim
+      vars:
+        configure_nvim_force_pull: true
+    - configure_oh_my_posh
     - configure_lazygit
     - configure_git
     - configure_tmux

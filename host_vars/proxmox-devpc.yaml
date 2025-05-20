@@ -5,13 +5,15 @@ dependencies:
   - git
   - python3
   - python3-pip
-  - python3-paramiko
+  - python3-paramiko # HACK: Required for SSH config and Cargo
+  - python3-venv
   - tmux
   - luarocks
   - zsh
   - zoxide
   - ripgrep
   - vim # HACK: Required for Neovim
+  - cmake # HACK: Required for Neovim plugins
   # - awscli # WARN: not working?
 
 primary_user: vladimir-levin
